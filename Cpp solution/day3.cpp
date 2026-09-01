@@ -77,6 +77,38 @@ std::vector<std::vector<int>> mergeInterval(
     return result;
 }
 
+
+std::vector<std::pair<int,int>> kdups(std::vector<int> nums, int k)
+{
+    std::unordered_map<int, int> hashmap;
+    std::vector<std::pair<int,int>> vec;
+    std::vector<std::pair<int,int>> result;
+
+    for(auto num : nums)
+    {
+
+        hashmap[num]++ ;
+
+    }
+
+    for(auto pair : hashmap){
+
+        vec.push_back({pair.first, pair.second});
+        
+    }
+    std::sort(vec.begin(), vec.end());
+
+    for(int i =0; i<k; i++)
+    {
+        result.push_back(vec[i]);
+    }
+
+    return result;
+
+
+
+}
+
 int main()
 {
     return 0;
