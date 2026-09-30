@@ -1,8 +1,9 @@
 class Solution:
-    void change(self, amount: int, coins: List[int]) -> int:
-        memo = {}
-
+    def change(self, amount: int, coins: List[int]) -> int:
+  
         def dfs(i, remaining):
+
+            memo = {}
             if remaining == 0:
                 return 1
 
