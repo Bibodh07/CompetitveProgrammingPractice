@@ -1,5 +1,5 @@
 class Solution:
-    def change(self, amount: int, coins: List[int]) -> int:
+    def change(self, amount: int, coins: list[int]) -> int:
   
         def dfs(i, remaining):
 
