@@ -28,3 +28,15 @@ int largestRectangleArea(std::vector<int> heights)
     }
     return best_area;
 }
+
+
+int longestMaximumSubarray(std::vector<int> nums)
+{
+    int best_length = 0;
+    int l = 0; 
+
+    for(int r =0; r < (int)nums.size(); r++)
+    {
+        
+    }
+}
