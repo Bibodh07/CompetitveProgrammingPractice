@@ -4,7 +4,7 @@
 #include <algorithm>
 #include <queue>
 #include <utility>
-#include <unordered_set>
+#include <unordered_map>
 #include <iostream>
 
 int MaximumSubarray(std::vector<int> arr)
@@ -110,15 +110,21 @@ void bfs(std::vector<std::vector<int>> &grid, int r, int c, int new_color, int o
                 q.push({nr, nc});
                 grid[nr][nc] = new_color;
             }
-
-
-        }
-
-
-        
+        }   
 
     }
 
+}
+
+std::vector<std::vector<int>> floodFillbfs(std::vector<std::vector<int>>& image, int sr, int sc, int color)
+{
+
+    int original_color = image[sr][sc];
+    if (original_color == color)
+        return image;
+    bfs(image, sr, sc, color, original_color);
+
+    return image;
 }
 
 std::vector<std::vector<int>> floodFill(std::vector<std::vector<int>>& image, int sr, int sc, int color)
@@ -130,6 +136,28 @@ std::vector<std::vector<int>> floodFill(std::vector<std::vector<int>>& image, in
     dfs(image, sr, sc, color, original_color);
 
     return image;
+}
+
+
+
+int noOfDups(std::vector<int> arr, int k)
+{
+    std::unordered_map<int, int> h;
+
+    h[0] = 1;
+
+    for(int i = 0; i < (int)arr.size(); i++)
+    {
+
+        if(h.count((k - arr[i])) > 0)
+        {
+            h[(k-arr[i])] += 1;
+        }
+        else{
+            h[arr[i]] = 1;
+        }
+         
+    }
 }
 
 
